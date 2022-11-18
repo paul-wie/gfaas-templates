@@ -1,0 +1,19 @@
+name: xfaasfunction
+lang: golang
+handler: ./xfaas-java11
+image: paulwie/started:latest
+deployRegistry: registry.hub.docker.com
+platformSpecificConfigurations:
+    nuclio:
+        # Used to expose Nuclio functions. Use ClusterIP for production.
+        serviceType: NodePort
+        # Function namespace can be used to group Nuclio functions.
+        namespace: default
+    fission:
+        # Currently it is only supported to deploy functions as container
+        executorType: container
+        namespace: default
+        # Used to create a http trigger after function was created successfully.
+        # The function can then be accessed http://{FISSION-ROUTER}/xfaasfunction
+        defaultHttpTrigger:
+            route: /xfaasfunction

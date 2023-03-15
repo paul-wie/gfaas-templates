@@ -9,8 +9,11 @@ import (
 
 func main() {
 	fmt.Printf("XFaaS Function is listening on port 8080\n")
+	// Health endpoint for Nuclio
 	http.HandleFunc("/_/health", Health)
 	http.HandleFunc("/_/ready", Ready)
+	// Health endpoint for Nuclio
+	http.HandleFunc("/__internal/health", Health)
 	http.HandleFunc("/", Function)
 	err := http.ListenAndServe(":8080", nil)
 

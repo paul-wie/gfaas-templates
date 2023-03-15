@@ -3,6 +3,8 @@ package org.xfaas.core.runner;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
+import org.xfaas.core.info.Health;
+import org.xfaas.core.info.Ready;
 import org.xfaas.core.model.XFunction;
 import org.xfaas.core.model.XRequest;
 import org.xfaas.core.model.XResponse;
@@ -18,6 +20,8 @@ public class XServer {
     public void startServer(XFunction xFunction) throws Exception{
         System.out.println("XFaaS Function is listening on port 8080");
         HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
+        server.createContext("/_/health", new XHandler(new Health()));
+        server.createContext("/_/ready", new XHandler(new Ready()));
         server.createContext("/", new XHandler(xFunction));
         server.setExecutor(null); // creates a default executor
         server.start();

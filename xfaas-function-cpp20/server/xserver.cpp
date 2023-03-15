@@ -10,9 +10,11 @@ void xfaas::XServer::start(httplib::Server::Handler& handler) {
 
     svr.Get("/", handler);
     svr.Post("/", handler);
-    // Required for OpenFaaS readiness and health checks
+    // Health endpoints for OpenFaaS
     svr.Get("/_/health", Info::health);
     svr.Get("/_/ready", Info::ready);
+    // Health endpoints for Nuclio
+    svr.Get("/__internal/health", Info::health);
 
     svr.listen("0.0.0.0", this->port);
 }

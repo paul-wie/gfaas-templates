@@ -21,6 +21,12 @@ def ready():
     return app.make_response(("Ok", 200))
 
 
+# Required for Nuclio health check
+@app.route("/__internal/health")
+def health():
+    return app.make_response(("Ok", 200))
+
+
 # Local testing
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=8080)

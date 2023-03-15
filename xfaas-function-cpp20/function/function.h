@@ -1,6 +1,6 @@
 #pragma once
 
-#include "xfaas-cpp-httplib/httplib.h"
+#include "httplib.h"
 
 namespace xfaas{
 

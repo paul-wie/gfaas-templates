@@ -1,6 +1,6 @@
 # XFaaS Function C++20
 
-The function code is located in <code>function.cpp</code>.
+The function code is located in <code>function/function.cpp</code>.
 
 ## Run the function locally
 

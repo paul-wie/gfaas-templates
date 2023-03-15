@@ -1,5 +1,5 @@
 # Use the official Python image.
-FROM python:3.9
+FROM python:3.9-slim
 
 # Install Python dependencies.
 COPY requirements.txt requirements.txt
@@ -14,4 +14,5 @@ COPY . .
 # webserver, with one worker process and 8 threads.
 # For environments with multiple CPU cores, increase the number of workers
 # to be equal to the cores available.
-CMD exec gunicorn --bind :8080 --timeout 0 --workers 2 --threads 8 xfaas_function:app
+EXPOSE 8080
+ENTRYPOINT exec gunicorn --bind :8080 --timeout 120 --workers 1 --threads 8 xfaas_function:app

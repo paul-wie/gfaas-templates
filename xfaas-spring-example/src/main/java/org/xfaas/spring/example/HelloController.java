@@ -19,9 +19,9 @@ public class HelloController {
     }
 
     @GetMapping
-    public WorldDTO getWorld(@RequestBody WorldDTO worldDTO, @RequestParam String id){
+    public WorldDTO getWorld(@RequestBody WorldDTO worldDTO){
         var result = new WorldDTO();
-        result.world = "World: " + worldDTO.world + ", ID: " + id;
+        result.world = "World: " + worldDTO.world;
         return result;
     }
 }

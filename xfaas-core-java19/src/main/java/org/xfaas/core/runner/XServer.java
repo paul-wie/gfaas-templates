@@ -20,8 +20,14 @@ public class XServer {
     public void startServer(XFunction xFunction) throws Exception{
         System.out.println("XFaaS Function is listening on port 8080");
         HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
+
+        // Health endpoints for OpenFaaS
         server.createContext("/_/health", new XHandler(new Health()));
         server.createContext("/_/ready", new XHandler(new Ready()));
+
+        // Health endpoints for Nuclio
+        server.createContext("/__internal/health", new XHandler(new Health()));
+
         server.createContext("/", new XHandler(xFunction));
         server.setExecutor(null); // creates a default executor
         server.start();

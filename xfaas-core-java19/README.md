@@ -10,6 +10,11 @@ This project contains different configurations and functionality:
 
 - <code>./gradlew build</code>
 
+### Distribution
+
+Currently, the jar file from the build section in <code>build/libs/xfaas-core-0.0.1.jar</code> is distributed manually. That means the jar file is copied to other projects and then included. 
+In the future, the jar file should be published on a public repository like [Maven Central](https://mvnrepository.com/repos/central) to make updates more convenient.
+
 ## Run Locally
 
 ### Jar File

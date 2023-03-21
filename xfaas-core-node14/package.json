@@ -1,0 +1,15 @@
+{
+  "name": "xfaas-core-node14",
+  "version": "1.0.7",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Paul Wieland",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

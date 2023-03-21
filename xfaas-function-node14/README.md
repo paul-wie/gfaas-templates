@@ -2,7 +2,7 @@
 
 ## Run the function locally
 
-- <code>node index.js</code> or execute <code>runFunction</code> in <code>package.json</code>.
+- <code>node function.js</code> or execute <code>runFunction</code> in <code>package.json</code>.
 
 ## Run and build the function using docker
 

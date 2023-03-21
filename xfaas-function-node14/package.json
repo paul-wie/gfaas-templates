@@ -2,10 +2,10 @@
   "name": "xfaas-function-node14",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "function.js",
   "type": "commonjs",
   "scripts": {
-    "runFunction": "node index.js"
+    "runFunction": "node function.js"
   },
   "keywords": [],
   "author": "",

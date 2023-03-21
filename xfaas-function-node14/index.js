@@ -1,19 +1,13 @@
-const express = require("express");
-const handler = require("./handler/handler")
-const info = require("./info/info")
+const xfaas = require("xfaas-core-node14")
 
-const app = express();
-const port = 8080;
+/**
+ * Responds to any HTTP request.
+ *
+ *  See https://expressjs.com/de/api.html for more information
+ */
+function handler(req, res) {
+    res.send("Hello World!")
+}
 
-// Health and Readiness endpoints for OpenFaaS
-app.get("/_/health", info.health);
-app.get("/_/ready", info.ready);
-// Health endpoint for Nuclio
-app.get("/__internal/health", info.health);
-// Handler function
-app.get("/", handler.function);
-app.post("/", handler.function);
+xfaas.runApp(handler)
 
-app.listen(port, function () {
-    console.log(`XFaaS Function is listening on port ${port}`);
-});

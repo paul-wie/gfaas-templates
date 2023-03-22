@@ -17,6 +17,6 @@ func (f MyFunction) Call(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func main() {
-	RunFunction(MyFunction{})
-}
+//func main() {
+//	RunFunction(MyFunction{})
+//}

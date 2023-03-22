@@ -1,10 +1,10 @@
 # XFaaS Function Go 1.19
 
-The function is located in <code>handler.go</code>.
+The function is located in <code>function.go</code>.
 
 ## Run the function locally
 
-- Set up the IDE to use <code>go 1.19</code> and <code>main.go</code> as entry.
+- Set up the IDE to use <code>go 1.19</code> and <code>function.go</code> as entry.
 
 ## Run and build the function using docker
 

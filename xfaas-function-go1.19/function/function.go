@@ -1,4 +1,4 @@
-package main
+package function
 
 import (
 	"fmt"
@@ -19,6 +19,6 @@ func (f MyFunction) Call(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func main() {
+func RunFunction() {
 	xfaas_core_go.RunFunction(MyFunction{})
 }

@@ -8,5 +8,5 @@ The function is located in <code>function.go</code>.
 
 ## Run and build the function using docker
 
-- <code>docker build -t xfaas-function-go1.19 .</code>
-- <code>docker run --rm -p 8080:8080 xfaas-function-go1.19</code>
+- <code>docker build -t xfaas-function-go1.19 . -f FunctionDockerfile</code>
+- <code>docker run --rm -p 8080:8080 xfaas-function-go1.19 -f FunctionDockerfile</code>

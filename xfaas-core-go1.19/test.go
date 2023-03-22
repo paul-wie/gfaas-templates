@@ -1,4 +1,4 @@
-package main
+package xfaas_core_go
 
 import (
 	"fmt"

@@ -53,8 +53,54 @@ Do not relocate the Function class, otherwise the build.gradle and the Dockerfil
     - <code>./Dockerfile</code>
     - <code>./function.yaml</code>
 2. Add dependency to your <code>build.gradle</code>
+###### Note
+The xfaas-core library is not published on any public repository. Therefore, the jar file must be included from local repository. 
+<pre>
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs("libs")
+    }
+}
+
+dependencies {
+    implementation name: 'xfaas-core-0.0.1'
+}
+</pre>
+
 3. Add gradle task **runFunction** <code>build.gradle</code>
+###### Note
+- Your function must be located in <code>org.xfaas.function.Function</code>
+<pre>
+task runFunction(type: JavaExec){
+    main = 'org.xfaas.core.runner.XRunner'
+    classpath = files('libs/xfaas-core-0.0.1.jar')
+    classpath = sourceSets.main.runtimeClasspath
+    args = ['--functionTarget=org.xfaas.function.Function']
+}
+</pre>
+
 4. Add proper build configurations to your <code>build.gradle</code>
+
+###### Note
+- The local <code>xfaas-core</code> library must be included
+- The main class must be the <code>XRunner</code>
+- The build output must be named <code>function.jar</code> 
+
+<pre>
+jar {
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    manifest {
+        attributes(
+                'Main-Class': 'org.xfaas.core.runner.XRunner'
+        )
+    }
+    archiveFileName.set('function.jar')
+}
+</pre>
+
 5. Open <code>function.yaml</code> and give your function a name. Also, enter a valid image me and registry, to which the function image should be pushed.
 6. In <code>./org.xfaas.function.Function.java:call</code> you can put the code that should be executed on the function call. You can call some code from your existing project.
 7. Follow the steps under **Workflow**

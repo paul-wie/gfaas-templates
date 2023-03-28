@@ -48,7 +48,8 @@ This is useful for testing the function locally. The function can be reached htt
    - <code>./README.md</code>
    - <code>./Dockerfile</code>
    - <code>./function.yaml</code>
-2. Execute <code>pip3 freeze > requirements.txt</code> to update the function dependencies.
-3. Open <code>function.yaml</code> and give your function a name. Also, enter a valid image me and registry, to which the function image should be pushed.
-4. In <code>./function.py:call</code> you can put the code that should be executed on the function call. You can call some code from your existing project.
-5. Follow the steps under **Workflow**
+2. Install dependencies <code>pip install flask</code> and <code>pip install xfaas_core_python3</code>
+3. Execute <code>pip3 freeze > requirements.txt</code> to update the function dependencies.
+4. Open <code>function.yaml</code> and give your function a name. Also, enter a valid image me and registry, to which the function image should be pushed.
+5. In <code>./function.py:call</code> you can put the code that should be executed on the function call. You can call some code from your existing project.
+6. Follow the steps under **Workflow**

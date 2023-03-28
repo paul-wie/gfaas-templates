@@ -44,7 +44,8 @@ The Function is based on [Express](https://expressjs.com) which is a minimalist 
     - <code>./README.md</code>
     - <code>./Dockerfile</code>
     - <code>./function.yaml</code>
-2. Add <code>[xfaas-core-node14](https://www.npmjs.com/package/xfaas-core-node14)</code> to your dependencies in <code>package.json</code>
-3. Open <code>function.yaml</code> and give your function a name. Also, enter a valid image me and registry, to which the function image should be pushed.
-4. In <code>./function.js:call</code> you can put the code that should be executed on the function call. You can call some code from your existing project.
-5. Follow the steps under **Workflow**
+2. Run <code>npm i xfaas-core-node14</code> to add <code>[xfaas-core-node14](https://www.npmjs.com/package/xfaas-core-node14)</code> to your dependencies. 
+3. Add <code>"runFunction": "node function.js"</code> to <code>package.json:scripts</code>.
+4. Open <code>function.yaml</code> and give your function a name. Also, enter a valid image me and registry, to which the function image should be pushed.
+5. In <code>./function.js:call</code> you can put the code that should be executed on the function call. You can call some code from your existing project.
+6. Follow the steps under **Workflow**

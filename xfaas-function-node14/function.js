@@ -5,10 +5,10 @@ const xfaas = require("xfaas-core-node14")
  *
  *  See https://expressjs.com/de/api.html for more information
  */
-function handler(req, res) {
+function call(req, res) {
     // Put here your custom code
     res.send("Hello World!")
 }
 
-xfaas.runApp(handler)
+xfaas.runApp(call)
 

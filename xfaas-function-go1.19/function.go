@@ -22,3 +22,7 @@ func (f MyFunction) Call(w http.ResponseWriter, r *http.Request) {
 func RunFunction() {
 	xfaas_core_go.RunFunction(MyFunction{})
 }
+
+func main() {
+	RunFunction()
+}

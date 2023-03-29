@@ -14,9 +14,14 @@ COPY . /usr/src/xfaas
 # Specify the working directory
 WORKDIR /usr/src/xfaas
 
+
+RUN rm -rf cmake-build-debug
+RUN rm -rf CMakeFiles
+RUN rm -f CMakeCache.txt fi
+
 # Use cmake to build the function
 RUN cmake .
-RUN cmake --build ./
+RUN cmake --build .
 
 # Run the output program from the previous step
 EXPOSE 8080

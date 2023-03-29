@@ -840,6 +840,34 @@ private:
   Headers default_headers_;
 };
 
+
+// XFaaS Start
+
+void function_health(const httplib::Request &, httplib::Response &res) {
+    res.set_content("Ok", "text/json");
+}
+
+void function_ready(const httplib::Request &, httplib::Response &res) {
+    res.set_content("Ok", "text/json");
+}
+
+inline void runFunction(httplib::Server::Handler& handler){
+        std::cout << "XFaaS Function is listening on port 8080\n" << std::endl;
+        httplib::Server svr;
+
+        svr.Get("/", handler);
+        svr.Post("/", handler);
+        // Health endpoints for OpenFaaS
+        svr.Get("/_/health", function_health);
+        svr.Get("/_/ready", function_ready);
+        // Health endpoints for Nuclio
+        svr.Get("/__internal/health", function_health);
+
+        svr.listen("0.0.0.0", 8080);
+    }
+
+// XFaaS End
+
 enum class Error {
   Success = 0,
   Unknown,
@@ -8764,3 +8792,4 @@ inline SSL_CTX *Client::ssl_context() const {
 #endif
 
 #endif // CPPHTTPLIB_HTTPLIB_H
+

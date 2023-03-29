@@ -1,0 +1,22 @@
+name: cpp20
+image: paulwie/xfaas-function-cpp20:latest
+deployRegistry: registry.hub.docker.com
+namespace: default
+scale:
+    scaleZeroDuration: 2m
+    enableScaleToZero: false
+    min: 1
+    max: 20
+#limits:
+#    memory: 200Mi # Here we constrain the url-ping function to only use 40Mb of RAM at a maximum
+#    cpu: 500m #100m which is equivalent to 1/10 of an Intel Hyperthread core.
+#requests:
+#    memory: 200Mi # Requests ensures the stated host resource is available for the container to use
+#    cpu: 500m #100m which is equivalent to 1/10 of an Intel Hyperthread core.
+platformSpecificConfigurations:
+    nuclio:
+        serviceType: NodePort
+    fission:
+        executorType: container
+        defaultHttpTrigger:
+            route: /node

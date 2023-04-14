@@ -18,35 +18,51 @@ Do not relocate the Function class, otherwise the build.gradle and the Dockerfil
 
 ##### Build the Function locally and push it to the local docker repository
 
-- <code>xfaas build function.yaml</code>
+```
+xfaas build function.yaml
+```
 
 ##### Push the Function to the configured remote repository which can be reached by the FaaS Platform
 
-- <code>xfaas push function.yaml</code>
+```
+xfaas push function.yaml
+```
 
 ##### Deploy the Function to the given FaaS Platform
 
-- <code>xfaas deploy function.yaml target_faas_platform</code>
+```
+xfaas deploy function.yaml target_faas_platform
+```
 
 ## Run Function with Gradle
 
-- <code>./ gradlew runFunction</code>
+```
+./ gradlew runFunction
+```
 
 ## Build the Function
 
-- <code>./gradlew build</code>
+```
+./gradlew build
+```
 
 ## Run Function from Jar
 
-- <code>java -jar build/libs/function.jar --functionTarget=org.xfaas.function.Function</code>
+```
+java -jar build/libs/function.jar --functionTarget=org.xfaas.function.Function
+```
 
 ## Build and Run the Function in a Container
-- <code>docker build . -t xfaas-java19-function</code>
-- <code>docker run -p 8080:8080 xfaas-java19-function</code>
+```
+docker build . -t xfaas-java19-function
+```
+```
+docker run -p 8080:8080 xfaas-java19-function
+```
 
 #### Adapt your project to XFaaS
 
-1. Execute <code>xfaas adapt --lang java19</code> inside the root folder of your java project. The following files are created:
+1. Execute ```xfaas adapt --lang java19``` inside the root folder of your java project. The following files are created:
     - <code>./src/main/java/org/xfaas/function/Function.java</code>
     - <code>./libs/xfaas-core-0.0.1.jar</code>
     - <code>./README.md</code>

@@ -37,7 +37,7 @@ xfaas deploy function.yaml target_faas_platform
 ## Run Function with Gradle
 
 ```
-./ gradlew runFunction
+./gradlew runFunction
 ```
 
 ## Build the Function

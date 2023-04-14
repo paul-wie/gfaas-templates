@@ -31,6 +31,11 @@ public class XServer {
         server.createContext("/", new XHandler(xFunction));
         server.setExecutor(null); // creates a default executor
         server.start();
+
+        HttpServer nuclioLive = HttpServer.create(new InetSocketAddress(8082), 0);
+        nuclioLive.createContext("/live", new XHandler(new Health()));
+        nuclioLive.setExecutor(null); // creates a default executor
+        nuclioLive.start();
     }
 
     private class XHandler implements HttpHandler{

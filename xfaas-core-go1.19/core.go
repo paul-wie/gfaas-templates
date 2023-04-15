@@ -19,7 +19,18 @@ func RunFunction(function XFunction) {
 	// Health endpoint for Nuclio
 	http.HandleFunc("/__internal/health", health)
 	http.HandleFunc("/", function.Call)
+
+	// Start health server to fillfil Nuclio health checks
+	http.HandleFunc("/live", health)
+	go func() {
+		err := http.ListenAndServe(":8082", nil)
+		if err != nil {
+			fmt.Printf("Could not start health server: %s\n", err)
+		}
+	}()
+
 	err := http.ListenAndServe(":8080", nil)
+	fmt.Printf("Function server\n")
 
 	if errors.Is(err, http.ErrServerClosed) {
 		fmt.Printf("Server was closed.")
@@ -27,6 +38,7 @@ func RunFunction(function XFunction) {
 		fmt.Printf("Error starting server: %s\n", err)
 		os.Exit(1)
 	}
+
 }
 
 /*

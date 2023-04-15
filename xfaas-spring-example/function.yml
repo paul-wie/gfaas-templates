@@ -1,0 +1,27 @@
+name: java-spring
+image: paulwie/xfaas-function-java19-spring-example:latest
+lang: java
+deployRegistry: registry.hub.docker.com
+namespace: default
+scale:
+    scaleZeroDuration: 2m
+    enableScaleToZero: true
+    min: 1
+    max: 20
+#limits:
+#    memory: 200Mi # Here we constrain the url-ping function to only use 40Mb of RAM at a maximum
+#    cpu: 500m #100m which is equivalent to 1/10 of an Intel Hyperthread core.
+#requests:
+#    memory: 200Mi # Requests ensures the stated host resource is available for the container to use
+#    cpu: 500m #100m which is equivalent to 1/10 of an Intel Hyperthread core.
+platformSpecificConfigurations:
+    nuclio:
+        serviceType: NodePort
+    fission:
+        # Currently it is only supported to deploy functions as container
+        executorType: container
+        # Fission does not create https automatically. Therefore, xfaas can be configured to do this automatically.
+        # The function can then be accessed http://{FISSION-ROUTER}/{route}
+        defaultHttpTrigger:
+            # TODO: check if trigger already exists
+            route: /node

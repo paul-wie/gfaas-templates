@@ -1,6 +1,7 @@
 name: python
 # TODO: validate that image exists in remote repo
 image: paulwie/xfaas-function-python3.9:latest
+lang: python
 #image: paulwie/xfaas-spring-example:latest
 #image: paulwie/openfaas-python:latest
 deployRegistry: registry.hub.docker.com

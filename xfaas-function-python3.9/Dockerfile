@@ -18,4 +18,5 @@ RUN pip install gunicorn
 # For environments with multiple CPU cores, increase the number of workers
 # to be equal to the cores available.
 EXPOSE 8080
-ENTRYPOINT exec gunicorn --bind :8080 --timeout 120 --workers 1 --threads 8 function:app
+EXPOSE 8082
+ENTRYPOINT exec gunicorn --bind :8080 --bind :8082 --timeout 120 --workers 1 --threads 8 function:app

@@ -29,6 +29,11 @@ def nuclio_health():
     return app.make_response(("Ok", 200))
 
 
+@app.route("/live")
+def nuclio_live():
+    return app.make_response(("Ok", 200))
+
+
 def get_app(function: XFunction):
     global target_function
     target_function = function

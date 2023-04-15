@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: xfaas-core-python3
-Version: 0.0.4
+Version: 0.0.5
 Summary: XFaaS package for Python3
 Author-email: Paul Wieland <paul.wieland@tum.de>
 Project-URL: Homepage, https://github.com/Function-Delivery-Network/FaaS-Shim

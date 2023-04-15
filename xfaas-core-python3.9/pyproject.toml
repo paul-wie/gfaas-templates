@@ -1,6 +1,6 @@
 [project]
 name = "xfaas_core_python3"
-version = "0.0.4"
+version = "0.0.5"
 authors = [
   { name="Paul Wieland", email="paul.wieland@tum.de" },
 ]

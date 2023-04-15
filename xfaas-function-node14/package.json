@@ -11,6 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "xfaas-core-node14": "^1.0.7"
+    "xfaas-core-node14": "^1.0.8"
   }
 }

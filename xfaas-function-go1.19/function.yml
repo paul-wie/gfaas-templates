@@ -1,5 +1,6 @@
 name: go
 image: paulwie/xfaas-function-go1.19:latest
+lang: golang
 deployRegistry: registry.hub.docker.com
 namespace: default
 scale:

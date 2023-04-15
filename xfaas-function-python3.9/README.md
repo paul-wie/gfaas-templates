@@ -15,29 +15,45 @@ The business code is located in <code>xfaas_entry.py</code>. Additional requirem
 ## Workflow
 
 ##### Build the Function locally and push it to the local docker repository
-- <code>pip3 freeze > requirements.txt</code>
-- <code>xfaas build function.yaml</code>
+```
+pip3 freeze > requirements.txt
+```
+```
+xfaas build function.yaml
+```
 
 ##### Push the Function to the configured remote repository which can be reached by the FaaS Platform
 
-- <code>xfaas push function.yaml</code>
+```
+xfaas push function.yaml
+```
 
 ##### Deploy the Function to the given FaaS Platform
 
-- <code>xfaas deploy function.yaml target_faas_platform</code>
+```
+xfaas deploy function.yaml target_faas_platform
+```
 
 ## Run the function locally
 
 This is useful for testing the function locally. The function can be reached http://127.0.0.1:8080/.
 
-- <code>flask --app xfaas_entry run --port 8080</code>
+```
+flask --app xfaas_entry run --port 8080
+```
 - Or execute <code>xfaas_entry:main</code>
 
 ## Run and build the function using docker
 
-- Run <code>pip3 freeze > requirements.txt</code> before building
-- <code>docker build -t xfaas-function-python3.9 .</code>
-- <code>docker run --rm -p 8080:8080 xfaas-function-python3.9</code>
+```
+pip3 freeze > requirements.txt
+```
+```
+docker build -t xfaas-function-python3.9 .
+```
+```
+docker run --rm -p 8080:8080 xfaas-function-python3.9
+```
 
 ## Adapter
 

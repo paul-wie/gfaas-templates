@@ -5,11 +5,15 @@ Package contains functionality to create a function.
 
 ### Publish
 
-- <code>npm publish</code>
+```
+npm publish
+```
 
 ### Installation
 
-- <code>npm install xfaas-core-node14</code>
+```
+npm install xfaas-core-node14
+```
 
 
 ### Adapter

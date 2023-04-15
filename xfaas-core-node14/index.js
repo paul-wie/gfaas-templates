@@ -9,6 +9,7 @@ const info = require("./info/info")
  */
 exports.runApp = function(targetFunction){
     const app = express();
+    const nuclioHeatlh = express();
     const port = 8080;
 
     // Health and Readiness endpoints for OpenFaaS
@@ -16,9 +17,14 @@ exports.runApp = function(targetFunction){
     app.get("/_/ready", info.ready);
     // Health endpoint for Nuclio
     app.get("/__internal/health", info.health);
+    nuclioHeatlh.get("/live", info.health);
     // Handler function
     app.get("/", targetFunction);
     app.post("/", targetFunction);
+
+    nuclioHeatlh.listen(8082, function () {
+        console.log(`Health endpoint is listening on port 8082`);
+    });
 
     app.listen(port, function () {
         console.log(`XFaaS Function is listening on port ${port}`);

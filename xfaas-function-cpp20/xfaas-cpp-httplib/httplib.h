@@ -851,6 +851,13 @@ void function_ready(const httplib::Request &, httplib::Response &res) {
     res.set_content("Ok", "text/json");
 }
 
+void runNuclioHealthServer(){
+    httplib::Server nuclioLive;
+    nuclioLive.Get("/live", function_health);
+    std::cout << "Running health service on port 8082\n" << std::endl;
+    nuclioLive.listen("0.0.0.0", 8082);
+}
+
 inline void runFunction(httplib::Server::Handler& handler){
         std::cout << "XFaaS Function is listening on port 8080\n" << std::endl;
         httplib::Server svr;
@@ -862,6 +869,10 @@ inline void runFunction(httplib::Server::Handler& handler){
         svr.Get("/_/ready", function_ready);
         // Health endpoints for Nuclio
         svr.Get("/__internal/health", function_health);
+
+
+        // Running Nuclio health service
+        std::thread thread_1 = std::thread(runNuclioHealthServer);
 
         svr.listen("0.0.0.0", 8080);
     }

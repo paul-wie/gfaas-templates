@@ -10,30 +10,46 @@ You need to have [Docker](https://www.docker.com), otherwise the CLI will not wo
 
 ##### Build the Function locally and push it to the local docker repository
 
-- <code>xfaas build function.yaml</code>
+```
+xfaas build function.yaml
+```
 
 ##### Push the Function to the configured remote repository which can be reached by the FaaS Platform
 
-- <code>xfaas push function.yaml</code>
+```
+xfaas push function.yaml
+```
 
 ##### Deploy the Function to the given FaaS Platform
 
-- <code>xfaas deploy function.yaml target_faas_platform</code>
+```
+xfaas deploy function.yaml target_faas_platform
+```
 
 ## Run the function locally
 
 Run the following commands to create an executable names <code>xfaas_function_cpp20</code>:
 
-- <code>cmake .</code>
-- <code>cmake --build ./</code>
-- <code>./xfaas_function_cpp20</code>
+```
+cmake .
+```
+```
+cmake --build ./
+```
+```
+./xfaas_function_cpp20
+```
 
 You can also setup your IDE to make all these instructions in one step.
 
 ## Run and build the function using docker
 
-- <code>docker build -t xfaas-function-cpp20 .</code>
-- <code>docker run --rm -p 8080:8080 xfaas-function-cpp20</code>
+```
+docker build -t xfaas-function-cpp20 .
+```
+```
+docker run --rm -p 8080:8080 xfaas-function-cpp20
+```
 
 
 #### Adapt your project to XFaaS

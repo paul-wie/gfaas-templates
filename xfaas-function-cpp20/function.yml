@@ -1,5 +1,6 @@
 name: cpp20
 image: paulwie/xfaas-function-cpp20:latest
+lang: cpp
 deployRegistry: registry.hub.docker.com
 namespace: default
 scale:

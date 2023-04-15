@@ -1,6 +1,7 @@
 name: node
 image: paulwie/xfaas-function-node14:latest
 deployRegistry: registry.hub.docker.com
+lang: node
 namespace: default
 scale:
     scaleZeroDuration: 2m

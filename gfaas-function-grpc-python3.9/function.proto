@@ -1,0 +1,14 @@
+syntax = "proto3";
+package org.proto;
+
+service Function {
+  rpc invoke(FunctionRequest) returns (FunctionResponse) {}
+}
+
+message FunctionRequest {
+  string text = 1;
+}
+
+message FunctionResponse {
+  string text = 1;
+}

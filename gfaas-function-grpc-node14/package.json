@@ -1,0 +1,17 @@
+{
+  "name": "gfaas-function-grpc-node14",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.8.14",
+    "grpc-node-server-reflection": "^1.0.2",
+    "grpc-server-reflection": "^0.1.5"
+  }
+}

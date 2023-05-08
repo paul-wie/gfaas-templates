@@ -1,6 +1,6 @@
 from flask import Flask, request
 
-from xfaas_core_python3.xfunction import DefaultFunction, XFunction
+from gfaas_core_python3.xfunction import DefaultFunction, XFunction
 
 app = Flask(__name__)
 target_function = DefaultFunction()

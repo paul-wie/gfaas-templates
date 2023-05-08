@@ -1,9 +1,9 @@
 from flask import make_response
-from xfaas_core_python3.xfunction import XFunction
-from xfaas_core_python3.xrunner import get_app, run_app
+from gfaas_core_python3.xfunction import XFunction
+from gfaas_core_python3.xrunner import get_app, run_app
 
 
-# MyFunctionEntry is used as entry point by the xfaas_core_python3 package as it implements XFunction
+# MyFunctionEntry is used as entry point by the gfaas_core_python3 package as it implements XFunction
 class MyFunctionEntry(XFunction):
 
     def call(self, request):

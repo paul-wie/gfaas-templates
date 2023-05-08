@@ -1,10 +1,10 @@
 [project]
-name = "xfaas_core_python3"
-version = "0.0.5"
+name = "gfaas_core_python3"
+version = "0.0.6"
 authors = [
   { name="Paul Wieland", email="paul.wieland@tum.de" },
 ]
-description = "XFaaS package for Python3"
+description = "gFaaS package for Python3"
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [
@@ -15,6 +15,6 @@ classifiers = [
 
 [project.urls]
 "Homepage" = "https://github.com/Function-Delivery-Network/FaaS-Shim"
-"Function Templates " = "https://github.com/paul-wie/xfaas-templates"
+"Function Templates " = "https://github.com/paul-wie/gfaas-templates"
 
 

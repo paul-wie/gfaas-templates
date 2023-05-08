@@ -6,7 +6,7 @@ The build files are located in <code>./dist</code>.
 python3 -m build
 ```
 
-# Upload the package to [PyPi](https://test.pypi.org/account/login/?next=%2Fmanage%2Faccount%2F)
+# Upload the package to [PyPi](https://pypi.org/account/login/)
 
 ```
 python3 -m pip install --upgrade twine
@@ -19,5 +19,5 @@ Use ```__token__``` as username and token with ```pypi-``` prefix.
 # Install the package
 
 ```
-pip install xfaas_core_python3
+pip install gfaas_core_python3
 ```

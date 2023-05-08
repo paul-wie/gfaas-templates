@@ -1,23 +1,37 @@
 name: go
+lang: go
 image: paulwie/xfaas-function-go1.19:latest
-lang: golang
 deployRegistry: registry.hub.docker.com
 namespace: default
 scale:
-    scaleZeroDuration: 2m
-    enableScaleToZero: false
-    min: 1
-    max: 20
-#limits:
-#    memory: 200Mi # Here we constrain the url-ping function to only use 40Mb of RAM at a maximum
-#    cpu: 500m #100m which is equivalent to 1/10 of an Intel Hyperthread core.
-#requests:
-#    memory: 200Mi # Requests ensures the stated host resource is available for the container to use
-#    cpu: 500m #100m which is equivalent to 1/10 of an Intel Hyperthread core.
-platformSpecificConfigurations:
-    nuclio:
-        serviceType: NodePort
+    knative:
+        # https://knative.dev/docs/serving/autoscaling/
+        scaleToZeroDuration: 2m
+        min: 1
+        max: 100
+        target: 50
+    openfaas:
+    # https://docs.openfaas.com/architecture/autoscaling/
+    # To enable autoscaling, one must use the OpenFaaS pro Autoscaler (https://docs.openfaas.com/architecture/autoscaling/)
+    # min: 1 (Not available in community version)
+    # max: 100 (Not available in community version)
+    # target: 50 (Not available in community version)
     fission:
-        executorType: container
-        defaultHttpTrigger:
-            route: /node
+        # https://fission.io/docs/reference/crd-reference/
+        scaleToZeroDuration: 111
+        min: 0
+        max: 20
+    nuclio:
+        # https://nuclio.io/docs/latest/reference/function-configuration/function-configuration-reference/
+        min: 1
+        max: 1
+        target: 1
+
+# nuclio_service_type = NodePort | ClusterIP. Use ClusterIP for production.
+nuclio_service_type: NodePort
+# fission_executor_type = container | poolmgr. Currently only container is supported
+fission_executor_type: container
+# fission_http_route as fisson does not automaticalli create http trigger
+fission_http_route: /java
+
+

@@ -1,0 +1,17 @@
+syntax = "proto3";
+package org.proto;
+option go_package = "./";
+
+service Function {
+  rpc invoke(FunctionRequest) returns (FunctionResponse) {}
+}
+
+message FunctionRequest {
+  string text = 1;
+}
+
+message FunctionResponse {
+  string text = 1;
+}
+
+

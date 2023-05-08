@@ -12,7 +12,7 @@ type XFunction interface {
 }
 
 func RunFunction(function XFunction) {
-	fmt.Printf("XFaaS Function is listening on port 8080\n")
+	fmt.Printf("Function is listening on port 8080\n")
 	// Health endpoint for Nuclio
 	http.HandleFunc("/_/health", health)
 	http.HandleFunc("/_/ready", ready)

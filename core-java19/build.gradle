@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.0.3'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group 'org.gfaas.core'
+version '0.0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}
+
+tasks.register("runFunction", JavaExec) {
+    main = 'org.gfaas.core.runner.XRunner'
+    classpath = sourceSets.main.runtimeClasspath
+
+    if(!project.hasProperty('functionTarget')){
+        throw new GradleException('Argument functionTarget is required but was not provided.')
+    }
+
+    args = ['--functionTarget=' + project.findProperty('functionTarget')]
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'org.gfaas.core.runner.XRunner'
+        )
+    }
+    archiveFileName.set('gfaas-core-0.0.1.jar')
+}

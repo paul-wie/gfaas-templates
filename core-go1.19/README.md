@@ -1,1 +1,1 @@
-## XFaaS Core Go 1.19
+## gFaaS Core Go 1.19

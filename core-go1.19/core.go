@@ -1,4 +1,4 @@
-package xfaas_core_go
+package gfaas_core_go
 
 import (
 	"errors"

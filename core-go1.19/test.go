@@ -1,4 +1,4 @@
-package xfaas_core_go
+package gfaas_core_go
 
 import (
 	"fmt"
@@ -11,7 +11,7 @@ type MyFunction struct {
 }
 
 func (f MyFunction) Call(w http.ResponseWriter, r *http.Request) {
-	_, err := fmt.Fprintf(w, "Hello from XFaaS Function Go 1.19")
+	_, err := fmt.Fprintf(w, "Hello World!")
 	if err != nil {
 		return
 	}

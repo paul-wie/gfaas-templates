@@ -1,8 +1,8 @@
 package org.xfaas.function;
 
-import org.xfaas.core.model.XFunction;
-import org.xfaas.core.model.XRequest;
-import org.xfaas.core.model.XResponse;
+import org.gfaas.core.model.XFunction;
+import org.gfaas.core.model.XRequest;
+import org.gfaas.core.model.XResponse;
 
 public class Function extends XFunction {
 
@@ -11,8 +11,8 @@ public class Function extends XFunction {
 
         var xResponse = new XResponse();
 
-        xResponse.setBody("My first XFaaS Function: " + xRequest.getBodyString());
-        xResponse.setHeader("MyXFaasHeader", "MyXFaasValue");
+        xResponse.setBody("Hello: " + xRequest.getBodyString());
+        xResponse.setHeader("MyCustomHeader", "MyCustomValue");
         xResponse.setStatusCode(200);
 
         return xResponse;

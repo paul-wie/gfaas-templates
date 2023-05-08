@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'org.xfaas.function'
+group 'org.gfaas.function'
 version '0.0.1'
 
 repositories {
@@ -14,14 +14,14 @@ repositories {
 
 dependencies {
 //    testCompile group: 'junit', name: 'junit', version: '4.12'
-    implementation name: 'xfaas-core-0.0.1'
+    implementation name: 'gfaas-core-0.0.1'
 }
 
 task runFunction(type: JavaExec){
-    main = 'org.xfaas.core.runner.XRunner'
-    classpath = files('libs/xfaas-core-0.0.1.jar')
+    main = 'org.gfaas.core.runner.XRunner'
+    classpath = files('libs/gfaas-core-0.0.1.jar')
     classpath = sourceSets.main.runtimeClasspath
-    args = ['--functionTarget=org.xfaas.function.Function']
+    args = ['--functionTarget=org.gfaas.function.Function']
 }
 
 jar {
@@ -30,7 +30,7 @@ jar {
     }
     manifest {
         attributes(
-                'Main-Class': 'org.xfaas.core.runner.XRunner'
+                'Main-Class': 'org.gfaas.core.runner.XRunner'
         )
     }
     archiveFileName.set('function.jar')

@@ -7,7 +7,7 @@ const info = require("./info/info")
  *
  *  See https://expressjs.com/de/api.html for more information
  */
-exports.runApp = function(targetFunction){
+exports.runFunction = function(targetFunction){
     const app = express();
     const nuclioHeatlh = express();
     const port = 8080;
@@ -27,6 +27,6 @@ exports.runApp = function(targetFunction){
     });
 
     app.listen(port, function () {
-        console.log(`XFaaS Function is listening on port ${port}`);
+        console.log(`Function is listening on port ${port}`);
     });
 }

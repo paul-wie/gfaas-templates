@@ -1,5 +1,5 @@
 
-## XFaaS Core Node14
+## gFaaS Core Node14
 
 Package contains functionality to create a function.
 
@@ -12,7 +12,7 @@ npm publish
 ### Installation
 
 ```
-npm install xfaas-core-node14
+npm install gfaas-core-node14
 ```
 
 
@@ -22,7 +22,7 @@ Create a file named <code>function.js</code> and add the following code.
 The handler can be extended with your custom code. The <code>Dockerfile</code> can be used for packaging.
 
 <pre>
-const xfaas = require("xfaas-core-node14")
+const gfaas = require("gfaas-core-node14")
 
 /**
  * Responds to any HTTP request.
@@ -34,5 +34,5 @@ function handler(req, res) {
     res.send("Hello World!")
 }
 
-xfaas.runApp(handler)
+gfaas.runApp(handler)
 </pre>

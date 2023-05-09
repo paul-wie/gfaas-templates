@@ -1,5 +1,5 @@
 {
-  "name": "xfaas-core-node14",
+  "name": "gfaas-core-node14",
   "version": "1.0.9",
   "main": "index.js",
   "scripts": {

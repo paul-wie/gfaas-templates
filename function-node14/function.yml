@@ -32,4 +32,4 @@ nuclio_service_type: NodePort
 # fission_executor_type = container | poolmgr. Currently only container is supported
 fission_executor_type: container
 # fission_http_route as fisson does not automaticalli create http trigger
-fission_http_route: /java
+fission_http_route: /node

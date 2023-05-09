@@ -1,2 +1,2 @@
-github.com/paul-wie/xfaas-templates/xfaas-core-go1.19 v0.0.0-20230415142700-c1a5f163db06 h1:UA+CGbh9DgO1SDAzb8tiIg/BwY1zE1LM8aQT8MxrkgU=
-github.com/paul-wie/xfaas-templates/xfaas-core-go1.19 v0.0.0-20230415142700-c1a5f163db06/go.mod h1:iQwCssD/x2nbl3AcyQt2urgJxynA/WwkZ7xl3d60X74=
+github.com/paul-wie/gfaas-templates/core-go1.19 v0.0.0-20230508163926-d6b934385ab2 h1:RMgh/2yCEB7k5pwjvHV7G2c8sWoKkydVYAPwo+iXmxM=
+github.com/paul-wie/gfaas-templates/core-go1.19 v0.0.0-20230508163926-d6b934385ab2/go.mod h1:5lN7JTTbAMw0sNRlrlMMxzx2D4kPa1Yxgmlt+6niCs4=

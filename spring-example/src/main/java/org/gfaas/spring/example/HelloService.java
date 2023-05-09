@@ -1,4 +1,4 @@
-package org.xfaas.spring.example;
+package org.gfaas.spring.example;
 
 import org.springframework.stereotype.Service;
 

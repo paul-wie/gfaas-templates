@@ -1,4 +1,4 @@
-package org.xfaas.spring.example;
+package org.gfaas.spring.example;
 
 public class HelloDTO {
 

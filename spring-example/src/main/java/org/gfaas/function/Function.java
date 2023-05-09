@@ -1,12 +1,12 @@
-package org.xfaas.function;
+package org.gfaas.function;
 
 
-import org.xfaas.core.adapter.XFaasSpringAdapter;
-import org.xfaas.core.model.XFunction;
-import org.xfaas.core.model.XRequest;
-import org.xfaas.core.model.XResponse;
-import org.xfaas.spring.example.HelloController;
-import org.xfaas.spring.example.XfaasSpringExampleApplication;
+import org.gfaas.core.adapter.XFaasSpringAdapter;
+import org.gfaas.core.model.XFunction;
+import org.gfaas.core.model.XRequest;
+import org.gfaas.core.model.XResponse;
+import org.gfaas.spring.example.HelloController;
+import org.gfaas.spring.example.XfaasSpringExampleApplication;
 
 public class Function  extends XFunction {
 

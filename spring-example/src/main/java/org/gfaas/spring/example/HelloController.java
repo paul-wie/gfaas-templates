@@ -1,4 +1,4 @@
-package org.xfaas.spring.example;
+package org.gfaas.spring.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

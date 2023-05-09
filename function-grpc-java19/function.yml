@@ -1,6 +1,6 @@
 name: java-grpc
 lang: java
-image: paulwie/xfaas-function-grpc-java19:latest
+image: paulwie/gfaas-function-grpc-java19:latest
 deployRegistry: registry.hub.docker.com
 namespace: default
 scale:

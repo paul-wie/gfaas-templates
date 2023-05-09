@@ -1,6 +1,6 @@
 name: python-grpc
 lang: python
-image: paulwie/gfaas-function-grpc-python39:latest
+image: paulwie/gfaas-function-grpc-python3.9:latest
 deployRegistry: registry.hub.docker.com
 namespace: default
 scale:

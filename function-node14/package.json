@@ -1,5 +1,5 @@
 {
-  "name": "xfaas-function-node14",
+  "name": "gfaas-function-node14",
   "version": "1.0.0",
   "description": "",
   "main": "function.js",
@@ -11,6 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "xfaas-core-node14": "^1.0.8"
+    "gfaas-core-node14": "^1.0.9"
   }
 }

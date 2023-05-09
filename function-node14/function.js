@@ -1,4 +1,4 @@
-const xfaas = require("xfaas-core-node14")
+const gfaas = require("gfaas-core-node14")
 
 /**
  * Responds to any HTTP request.
@@ -10,5 +10,5 @@ function call(req, res) {
     res.send("Hello World!")
 }
 
-xfaas.runApp(call)
+gfaas.runFunction(call)
 

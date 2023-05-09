@@ -26,4 +26,4 @@ RUN cmake --build .
 # Run the output program from the previous step
 EXPOSE 8080
 EXPOSE 8082
-CMD ["./xfaas_function_cpp20"]
+CMD ["./gfaas_function_cpp20"]

@@ -841,7 +841,7 @@ private:
 };
 
 
-// XFaaS Start
+// gFaaS Start
 
 void function_health(const httplib::Request &, httplib::Response &res) {
     res.set_content("Ok", "text/json");
@@ -859,7 +859,7 @@ void runNuclioHealthServer(){
 }
 
 inline void runFunction(httplib::Server::Handler& handler){
-        std::cout << "XFaaS Function is listening on port 8080\n" << std::endl;
+        std::cout << "Function is listening on port 8080\n" << std::endl;
         httplib::Server svr;
 
         svr.Get("/", handler);
@@ -877,7 +877,7 @@ inline void runFunction(httplib::Server::Handler& handler){
         svr.listen("0.0.0.0", 8080);
     }
 
-// XFaaS End
+// gFaaS End
 
 enum class Error {
   Success = 0,

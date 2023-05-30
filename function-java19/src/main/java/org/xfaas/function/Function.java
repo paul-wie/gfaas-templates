@@ -11,8 +11,7 @@ public class Function extends XFunction {
 
         var xResponse = new XResponse();
 
-        xResponse.setBody("Hello: " + xRequest.getBodyString());
-        xResponse.setHeader("MyCustomHeader", "MyCustomValue");
+        xResponse.setBody("Hello World!");
         xResponse.setStatusCode(200);
 
         return xResponse;

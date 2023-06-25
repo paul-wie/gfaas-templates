@@ -1,7 +1,7 @@
 # XFaaS Function
 
 
-The function is located in <code>org.xfaas.function.Function</code>.
+The function is located in <code>Function</code>.
 
 #### Requirements
 
@@ -10,7 +10,7 @@ You need to have [Docker](https://www.docker.com), otherwise the CLI will not wo
 ## About
 
 This project contains everything to develop, run and deploy a function written in Java11.
-The function is placed in org.xfaas.function.Function and can be extended with the business logic.
+The function is placed in Function and can be extended with the business logic.
 The function extends the XFunction class from the xfaas-core project, which provides interfaces, models and the underlying code to server the function.
 Do not relocate the Function class, otherwise the build.gradle and the Dockerfile must be adjusted to guarantee proper build and execution.
 
@@ -49,7 +49,7 @@ xfaas deploy function.yaml target_faas_platform
 ## Run Function from Jar
 
 ```
-java -jar build/libs/function.jar --functionTarget=org.xfaas.function.Function
+java -jar build/libs/function.jar --functionTarget=Function
 ```
 
 ## Build and Run the Function in a Container
@@ -86,13 +86,13 @@ dependencies {
 
 3. Add gradle task **runFunction** <code>build.gradle</code>
 ###### Note
-- Your function must be located in <code>org.xfaas.function.Function</code>
+- Your function must be located in <code>Function</code>
 <pre>
 task runFunction(type: JavaExec){
     main = 'org.xfaas.core.runner.XRunner'
     classpath = files('libs/xfaas-core-0.0.1.jar')
     classpath = sourceSets.main.runtimeClasspath
-    args = ['--functionTarget=org.xfaas.function.Function']
+    args = ['--functionTarget=Function']
 }
 </pre>
 
@@ -118,14 +118,14 @@ jar {
 </pre>
 
 5. Open <code>function.yaml</code> and give your function a name. Also, enter a valid image me and registry, to which the function image should be pushed.
-6. In <code>./org.xfaas.function.Function.java:call</code> you can put the code that should be executed on the function call. You can call some code from your existing project.
+6. In <code>./Function.java:call</code> you can put the code that should be executed on the function call. You can call some code from your existing project.
 7. Follow the steps under **Workflow**
 
 ##### Extension for Spring projects
 
 Use the <code>XFaaSSpringAdapter</code> to delegate the request to your Spring <code>@RestController</code> endpoint:
 
-1. Go to the Function <code>org.xfaas.function.Function</code> and user the spring adapter to choose the proper endpoint.
+1. Go to the Function <code>Function</code> and user the spring adapter to choose the proper endpoint.
 The following example is delegating the request to the <code>getWorld</code> endpoint of the <code>HelloWorldController</code>.
 
 ###### Note

@@ -1,4 +1,4 @@
-package org.xfaas.function;
+package org.gfaas.function;
 
 import org.gfaas.core.model.XFunction;
 import org.gfaas.core.model.XRequest;

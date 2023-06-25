@@ -1,17 +1,33 @@
-# https://docs.docker.com/language/golang/build-images/
-FROM golang:1.19-alpine
+# Use the official Golang image to create a build artifact.
+# This is based on Debian and sets the GOPATH to /go.
+FROM golang:latest as builder
 
+ARG TARGETOS
+ARG TARGETARCH
+
+# Create and change to the app directory.
 WORKDIR /app
 
-COPY go.mod ./
-COPY go.sum ./
+# Retrieve application dependencies using go modules.
+# Allows container builds to reuse downloaded dependencies.
+COPY go.* ./
 RUN go mod download
 
-COPY *.go ./
+# Copy local code to the container image.
+COPY . ./
 
-RUN go build -o /docker-gs-ping
+# Build the binary.
+# -mod=readonly ensures immutable go.mod and go.sum in container builds.
+RUN CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -mod=readonly -v -o server
 
-EXPOSE 8080
-EXPOSE 8082
+# Use the official Alpine image for a lean production container.
+# https://hub.docker.com/_/alpine
+# https://docs.docker.com/develop/develop-images/multistage-build/#use-multi-stage-builds
+FROM alpine:3
+RUN apk add --no-cache ca-certificates
 
-CMD [ "/docker-gs-ping" ]
+# Copy the binary to the production image from the builder stage.
+COPY --from=builder /app/server /server
+
+# Run the web service on container startup.
+CMD ["/server"]
